@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}
+Post - {{ post.title }}
+{% endblock %}
+
+
+{% block content %}
+<div class="blog-container">
+  <div class="post-header">
+    <h1>{{ post.title }}</h1>
+    <p class="metadata-font"><i class="material-icons">person</i>Author: {{ post.author }}</p>
+    <p class="metadata-font"><i class="material-icons">calendar_today</i> {{ post.date }}</p>
+    <p class="metadata-font"><i class="material-icons">sell</i> Tags: {{ post.tags | join(" - ")}}</p>
+    <div>{{ content | safe }}</div>
+  </div>
+  
+  <div class="post-content">
+    {{ content|safe }}
+  </div>
+</div> 
+{% endblock %}

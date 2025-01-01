@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}
+Home - My Blog
+{% endblock %}
+
+{% block content %}
+<div class="blog-container">
+  <h1>Posts</h1>
+  <div class="post-list">
+    {% for post in posts %}
+    <div class="post-item">
+      <span class="post-date">{{ post.date }}</span>&nbsp;&nbsp;&nbsp;
+      <a href="{{ url_for('post', filename=post.filename) }}" class="post-title"><strong>{{ post.title }}</strong></a>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

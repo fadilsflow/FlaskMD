@@ -1,0 +1,115 @@
+/* Global Styles */
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #1E1E1E;
+  color: #D4D4D4;
+  line-height: 1.6;
+}
+
+.container {
+  width: 90%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+a {
+  color: #D4D4D4;
+  text-decoration: none;
+  transition: color 0.3s ease, transform 0.3s ease;
+
+}
+
+/* Header */
+header {
+  background-color: #1E1E1E;
+  padding: 10px 0;
+  border-bottom: 3px solid #1E1E1E  ;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2rem;
+  text-align: center;
+}
+
+header a {
+  text-decoration: none;
+}
+
+/* Navbar Styles */
+.navbar {
+  background-color: #1E1E1E;
+  padding: 10px 0;
+}
+
+.navbar .container {
+  display: flex;
+  justify-content: space-between; /* Atur kanan-kiri */
+  align-items: center; /* Vertikal sejajar */
+}
+
+.navbar .logo a {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+.navbar .logo a:hover {
+  color: #0A84FF; /* Efek hover pada logo */
+}
+
+.nav-menu {
+  list-style: none;
+  display: flex;
+  gap: 20px; /* Jarak antar item menu */
+  margin: 0;
+  padding: 0;
+}
+
+.nav-menu li a {
+  font-weight: bold;
+  color: #D4D4D4;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.nav-menu li a:hover {
+  color: #0A84FF; /* Efek hover pada link */
+}
+
+/* Footer */
+footer {
+  background: #1E1E1E;
+  text-align: center;
+  padding: 10px 0;
+  margin-top: 20px;
+}
+
+footer p {
+  margin: 0;
+}
+.material-icons {
+  vertical-align: middle; /* Menjaga ikon sejajar dengan teks */
+  font-size: 1.2em; /* Menyesuaikan ukuran ikon jika perlu */
+}
+
+.metadata-font{
+  font-size: 1em;
+}
+.post-list a {
+  text-decoration: none;
+  transition: color 0.3s ease, transform 0.3s ease;
+
+}
+.post-list a:hover {
+  color: #0A84FF;
+  transform: scale(1.1);
+
+}
+.post-item {
+ /* Elemen disusun secara vertikal */
+  gap: 100px; /* 3 spasi, misalnya 10px untuk setiap spasi */
+}
