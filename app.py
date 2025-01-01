@@ -12,7 +12,6 @@ def get_posts():
             with open(os.path.join('posts', filename), 'r') as file:
                 content = file.read()
                 try:
-                    # Split YAML front matter and content
                     _, yaml_str, content = content.split('---', 2)
                     metadata = yaml.safe_load(yaml_str)
                     posts.append({**metadata, 'filename': filename})
