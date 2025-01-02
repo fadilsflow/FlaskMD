@@ -1,12 +1,42 @@
 /* Global Styles */
+:root {
+  --background-dark: #1E1E1E;
+  --font-dark: #D4D4D4;
+  --background-light: #D4D4D4;
+  --font-light: #1E1E1E;
+  --link-color: #007BFF;
+  --hover-color: #0A84FF;
+  --navbar-background: #1E1E1E;
+  --footer-background: #1E1E1E;
+}
+
+/* Body Global */
 body {
   margin: 0;
   font-family: 'Arial', sans-serif;
-  background-color: #1E1E1E;
-  color: #D4D4D4;
   line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease; /* Animasi transisi */
 }
 
+
+/* Tema Gelap */
+body.dark {
+  background-color: var(--background-dark);
+  color: var(--font-dark);
+}
+body.dark a {
+  color: var(--font-dark);
+}
+/* Tema Terang */
+body.light {
+  background-color: var(--background-light);
+  color: var(--font-light);
+}
+body.light a {
+  color: var(--font-light);
+
+}
+/* Kontainer */
 .container {
   width: 90%;
   max-width: 800px;
@@ -15,17 +45,16 @@ body {
 }
 
 a {
-  color: #D4D4D4;
   text-decoration: none;
   transition: color 0.3s ease, transform 0.3s ease;
+  color: var(--link-color);
 }
 
 /* Header */
 header {
-  background-color: #1E1E1E;
-  border-bottom: 3px solid #1E1E1E;
-  margin: 0; /* Menghapus margin agar lebih rapat ke atas */
-  padding: 10px 0; /* Menambahkan padding jika perlu */
+  border-bottom: 3px solid var(--navbar-background);
+  margin: 0; 
+  padding: 10px 0; 
 }
 
 header h1 {
@@ -40,9 +69,9 @@ header a {
 
 /* Navbar Styles */
 .navbar {
-  background-color: #1E1E1E;
-  padding: 0; /* Menghapus padding agar lebih rapat ke atas */
-  margin: 0; /* Menghapus margin untuk mengurangi jarak atas */
+  background-color: var(--navbar-background);
+  padding: 0; 
+  margin: 0; 
   position: relative;
   top: 0;
 }
@@ -56,12 +85,12 @@ header a {
 .navbar .logo a {
   font-size: 1.5rem;
   font-weight: bold;
-  color: #FFFFFF;
+  color: var(--font-dark);
   text-decoration: none;
 }
 
 .navbar .logo a:hover {
-  color: #0A84FF; /* Efek hover pada logo */
+  color: var(--hover-color); /* Efek hover pada logo */
 }
 
 .nav-menu {
@@ -74,25 +103,23 @@ header a {
 
 .nav-menu li a {
   font-weight: bold;
-  color: #D4D4D4;
+  color: var(--font-dark);
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 .nav-menu li a:hover {
-  color: #0A84FF; /* Efek hover pada link */
+  color: var(--hover-color); /* Efek hover pada link */
 }
 
 .link{
-  color: #007BFF;
+  color: var(--link-color);
   font-size: 1em;
 }
-
 
 /* User */
 .user-bio {
   margin-bottom: 20px;
-  color: #D4D4D4;
 }
 
 .user-info {
@@ -106,8 +133,7 @@ header a {
   height: 110px; /* Ukuran tinggi gambar */
   margin-right: 15px; /* Memberi jarak antara gambar dan informasi */
   overflow: hidden;
-  background-color: #D4D4D4;
-  /* border-radius: 50%; Membuat gambar menjadi lingkaran */
+  background-color: var(--font-dark);
 }
 
 .user-image img {
@@ -134,7 +160,7 @@ header a {
 
 /* Footer */
 footer {
-  background: #1E1E1E;
+  background: var(--footer-background);
   text-align: center;
   padding: 10px 0;
   margin-top: 20px;
@@ -143,35 +169,41 @@ footer {
 footer p {
   margin: 0;
 }
+
 .material-icons {
   vertical-align: middle; /* Menjaga ikon sejajar dengan teks */
   font-size: 1.2em; /* Menyesuaikan ukuran ikon jika perlu */
 }
 
-.metadata-font{
+.metadata-font {
   font-size: 1em;
   font-weight: bold;
 }
-.post-header p{
+
+.post-header p {
   margin: 1px 0;
 }
-.post-header h1{
+
+.post-header h1 {
   font-size: 2.5rem;
   margin: 0;
 }
+
 .post-list a {
   text-decoration: none;
   transition: color 0.3s ease, transform 0.3s ease;
 }
-.post-list a:hover {
-  color: #0A84FF;
 
+.post-list a:hover {
+  color: var(--hover-color);
 }
+
 .post-item {
-  gap: 100px
+  gap: 100px;
 }
-.metadata-font{
-  font-size: larger; 
+
+.metadata-font {
+  font-size: larger;
 }
 
 #tags .tag {
@@ -183,9 +215,7 @@ footer p {
   font-size: 14px;
 }
 
-
-
-/* Index css */
+/* Index CSS */
 .blog-container {
   max-width: 1200px;
   margin: 0 auto;
@@ -199,7 +229,7 @@ footer p {
 }
 
 .post-card {
-  width: calc(33.333% - 20px); 
+  width: calc(33.333% - 20px);
   text-align: center;
   overflow: hidden;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -210,7 +240,7 @@ footer p {
 .image-container {
   position: relative;
   width: 100%;
-  padding-top: 75%; 
+  padding-top: 75%;
   overflow: hidden;
 }
 
@@ -220,14 +250,14 @@ footer p {
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Menjaga gambar agar tidak terdistorsi dan memenuhi kontainer */
-  filter: brightness(90%); /* Memberikan efek gelap pada gambar */
-  transition: filter 0.3s ease; /* Menambahkan transisi halus untuk filter */ 
-}
-.image-container img:hover {
-  filter: brightness(100%); /* Mengembalikan gambar ke kecerahan aslinya saat hover */
+  object-fit: cover;
+  filter: brightness(90%);
+  transition: filter 0.3s ease;
 }
 
+.image-container img:hover {
+  filter: brightness(100%);
+}
 
 .post-info {
   padding: 10px;
@@ -243,4 +273,3 @@ footer p {
   font-size: 14px;
   margin-bottom: 10px;
 }
-

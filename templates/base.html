@@ -16,6 +16,8 @@
                     <li><a href="{{ url_for('index') }}">Blog</a></li>
                 </ul>
             </nav>
+            <button id="theme-toggle" class="theme-toggle">Ganti Tema</button>
+
         </div>
     </header>
     <main class="container">
@@ -26,5 +28,27 @@
             <p>&copy; {{ current_year }} FlaskMD | Designed with 🤍 by Fadils using Flask</p>
         </div>
     </footer>
+    <script>
+        // Menyimpan preferensi tema ke localStorage dan memuatnya saat pertama kali membuka
+        if(localStorage.getItem('theme') === 'light') {
+            document.body.classList.remove('dark');
+            document.body.classList.add('light');
+        } else {
+            document.body.classList.remove('light');
+            document.body.classList.add('dark');
+        }
+
+        // Mengganti tema saat tombol diklik dan menyimpan pilihan ke localStorage
+        const themeToggle = document.getElementById('theme-toggle');
+        themeToggle.addEventListener('click', function () {
+            document.body.classList.toggle('dark');
+            document.body.classList.toggle('light');
+            if (document.body.classList.contains('light')) {
+                localStorage.setItem('theme', 'light');
+            } else {
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+    </script>
 </body>
 </html>
