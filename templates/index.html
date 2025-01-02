@@ -6,12 +6,33 @@ Home - My Blog
 
 {% block content %}
 <div class="blog-container">
+  <div class="user-bio">
+    <div class="user-info">
+      <div class="user-image">
+        <img src="../static/image/profile.png" alt="User Image">
+      </div>
+      <div class="user-details">
+        <h2 class="user-name">Wahyu Akhmad Fadillah</h2>
+        <p class="user-role">Fullstack Developer & Content Creator.</p>
+        <p class="user-blog-count">Blogs Created: {{ blog_count }}</p>
+      </div>
+    </div>
+  </div>
   <h1>Posts</h1>
   <div class="post-list">
     {% for post in posts %}
-    <div class="post-item">
-      <span class="post-date">{{ post.date }}</span>&nbsp;&nbsp;&nbsp;
-      <a href="{{ url_for('post', filename=post.filename) }}" class="post-title"><strong>{{ post.title }}</strong></a>
+    <div class="post-card">
+      <a href="{{ url_for('post', filename=post.filename) }}">
+        <div class="image-container">
+          <img src="{{ post.image }}" alt="Post Image">
+        </div>
+      </a>
+      <a href="{{ url_for('post', filename=post.filename) }}">
+      <div class="post-info">
+        <h2>{{ post.title }}</h2>
+        <p>{{ post.date }}</p>
+      </div>
+      </a>
     </div>
     {% endfor %}
   </div>

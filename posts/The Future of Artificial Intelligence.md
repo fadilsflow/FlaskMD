@@ -7,7 +7,7 @@ tags:
   - technology
   - AI
   - future
-image: static/image/dede.jpg
+image: ../static/image/img.png
 ---
 Artificial intelligence (AI) is rapidly evolving and reshaping various industries. From healthcare to entertainment, AI is opening up new possibilities and challenges. In this post, we will explore the future of AI and how it will impact our lives in the coming years.
 

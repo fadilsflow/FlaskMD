@@ -7,6 +7,7 @@ tags:
   - productivity
   - habits
   - routine
+image: ../static/image/img.png
 ---
 A productive day starts with a successful morning routine. The first few hours of the day set the tone for everything that follows. By establishing good habits in the morning, you can boost your productivity, enhance your mood, and set yourself up for success. Here’s how you can build a routine that works for you.
 

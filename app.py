@@ -2,7 +2,7 @@ from flask import Flask, render_template
 import markdown
 import os
 import yaml
-
+import datetime
 app = Flask(__name__)
 
 def get_posts():
@@ -25,9 +25,15 @@ def get_post_content(filename):
         _, yaml_str, content = file.read().split('---', 2)
         return markdown.markdown(content.strip()), yaml.safe_load(yaml_str)
 
+
+def get_blog_count():
+    return len([filename for filename in os.listdir('posts') if filename.endswith('.md')])
+
 @app.route('/')
 def index():
-    return render_template('index.html', posts=get_posts())
+    blog_count = get_blog_count()
+    current_year = datetime.datetime.now().year
+    return render_template('index.html', posts=get_posts() , blog_count=blog_count, current_year=current_year)
 
 @app.route('/post/<filename>')
 def post(filename):

@@ -18,14 +18,14 @@ a {
   color: #D4D4D4;
   text-decoration: none;
   transition: color 0.3s ease, transform 0.3s ease;
-
 }
 
 /* Header */
 header {
   background-color: #1E1E1E;
-  padding: 10px 0;
-  border-bottom: 3px solid #1E1E1E  ;
+  border-bottom: 3px solid #1E1E1E;
+  margin: 0; /* Menghapus margin agar lebih rapat ke atas */
+  padding: 10px 0; /* Menambahkan padding jika perlu */
 }
 
 header h1 {
@@ -41,7 +41,10 @@ header a {
 /* Navbar Styles */
 .navbar {
   background-color: #1E1E1E;
-  padding: 10px 0;
+  padding: 0; /* Menghapus padding agar lebih rapat ke atas */
+  margin: 0; /* Menghapus margin untuk mengurangi jarak atas */
+  position: relative;
+  top: 0;
 }
 
 .navbar .container {
@@ -80,6 +83,55 @@ header a {
   color: #0A84FF; /* Efek hover pada link */
 }
 
+.link{
+  color: #007BFF;
+  font-size: 1em;
+}
+
+
+/* User */
+.user-bio {
+  margin-bottom: 20px;
+  color: #D4D4D4;
+}
+
+.user-info {
+  display: flex; /* Menyusun gambar dan informasi dalam satu baris */
+  align-items: center; /* Vertikal sejajar */
+}
+
+.user-image {
+  position: relative;
+  width: 110px; /* Ukuran lebar gambar */
+  height: 110px; /* Ukuran tinggi gambar */
+  margin-right: 15px; /* Memberi jarak antara gambar dan informasi */
+  overflow: hidden;
+  background-color: #D4D4D4;
+  /* border-radius: 50%; Membuat gambar menjadi lingkaran */
+}
+
+.user-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Menjaga gambar tetap proporsional dan memenuhi kontainer */
+}
+
+.user-details {
+  display: flex;
+  flex-direction: column; /* Menyusun informasi dalam kolom vertikal */
+}
+
+.user-name {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.user-details p {
+  font-size: 1.2rem;
+  margin: 1px 0;
+}
+
 /* Footer */
 footer {
   background: #1E1E1E;
@@ -98,18 +150,97 @@ footer p {
 
 .metadata-font{
   font-size: 1em;
+  font-weight: bold;
+}
+.post-header p{
+  margin: 1px 0;
+}
+.post-header h1{
+  font-size: 2.5rem;
+  margin: 0;
 }
 .post-list a {
   text-decoration: none;
   transition: color 0.3s ease, transform 0.3s ease;
-
 }
 .post-list a:hover {
   color: #0A84FF;
-  transform: scale(1.1);
 
 }
 .post-item {
- /* Elemen disusun secara vertikal */
-  gap: 100px; /* 3 spasi, misalnya 10px untuk setiap spasi */
+  gap: 100px
 }
+.metadata-font{
+  font-size: larger; 
+}
+
+#tags .tag {
+  display: inline-block;
+  padding: 5px 10px;
+  margin-right: 5px;
+  background-color: #3f3f3f; /* Background abu-abu */
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+
+
+/* Index css */
+.blog-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.post-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: space-between;
+}
+
+.post-card {
+  width: calc(33.333% - 20px); 
+  text-align: center;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+.image-container {
+  position: relative;
+  width: 100%;
+  padding-top: 75%; 
+  overflow: hidden;
+}
+
+.image-container img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Menjaga gambar agar tidak terdistorsi dan memenuhi kontainer */
+  filter: brightness(90%); /* Memberikan efek gelap pada gambar */
+  transition: filter 0.3s ease; /* Menambahkan transisi halus untuk filter */ 
+}
+.image-container img:hover {
+  filter: brightness(100%); /* Mengembalikan gambar ke kecerahan aslinya saat hover */
+}
+
+
+.post-info {
+  padding: 10px;
+}
+
+.post-info h2 {
+  font-size: 18px;
+  margin: 0 0 10px;
+}
+
+.post-info p {
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+

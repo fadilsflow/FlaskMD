@@ -7,7 +7,10 @@ tags:
   - travel
   - adventure
   - destinations
+image: ../static/image/img.png
 ---
+
+
 As we approach the new year, many of us are already planning our next vacation. Whether you’re looking for a relaxing beach getaway or an adventurous trek through the mountains, 2025 promises to be an exciting year for travel. Here are some of the top destinations to visit in the coming year.
 
 ## 1. Kyoto, Japan
