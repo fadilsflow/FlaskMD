@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}Add Blog Post{% endblock %}
+
+{% block content %}
+<div class="add-blog-container">
+    <h1>Create New Blog Post</h1>
+    
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    
+    <form action="{{ url_for('add_blog') }}" method="post" enctype="multipart/form-data" class="blog-form">
+        <div class="form-group">
+            <label for="markdown_file">Blog Content (Markdown File):</label>
+            <input type="file" id="markdown_file" name="markdown_file" accept=".md" required>
+            <small class="form-text">Upload your markdown file with YAML front matter</small>
+        </div>
+        
+        <div class="form-group">
+            <label for="cover_image">Cover Image:</label>
+            <input type="file" id="cover_image" name="cover_image" accept="image/*" required>
+            <small class="form-text">Upload an image for your blog post cover</small>
+        </div>
+        
+        <button type="submit" class="submit-btn">Create Post</button>
+    </form>
+</div>
+{% endblock %}

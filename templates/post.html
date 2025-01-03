@@ -9,14 +9,14 @@ Post - {{ post.title }}
 <div class="blog-container">
   <div class="post-header">
     <a href="{{ url_for('index') }}">    
-      <p class="link"><i class="material-icons" >arrow_back</i>Back to Blog Page</p>
+      <p class="link"><ion-icon name="caret-back" class="icons" >arrow_back</ion-icon>Back to Blog Page</p>
     </a>
     <br>
     <h1>{{ post.title }}</h1>
-    <p class="metadata-font"><i class="material-icons">calendar_today</i>    {{ post.date }}</p>
-    <p class="metadata-font"><i class="material-icons">person</i>    {{ post.author }}</p>
+    <p class="metadata-font"><ion-icon name="calendar-clear" class="icons"></ion-icon>    {{ post.date }}</p>
+    <p class="metadata-font"><ion-icon name="person" class="icons"></ion-icon>    {{ post.author }}</p>
     <p class="metadata-font" id="tags">
-      <i class="material-icons">sell</i> 
+      <ion-icon name="pricetags" class="icons"></ion-icon> 
       {% for tag in post.tags %}
         <span class="tag">{{ tag }}</span>
       {% endfor %}

@@ -16,6 +16,12 @@ Home - My Blog
         <p class="user-role">Fullstack Developer & Content Creator.</p>
         <p class="user-blog-count">Blogs Created: {{ blog_count }}</p>
       </div>
+      <div class="add-blog">
+        <a href="{{ url_for('add_blog') }}" class="add-blog-button">
+            <ion-icon name="add-circle"></ion-icon>
+            <span>Add New Blog</span>
+        </a>
+    </div>
     </div>
   </div>
   <h1>Posts</h1>
