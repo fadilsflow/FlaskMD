@@ -16,17 +16,87 @@
     <form action="{{ url_for('add_blog') }}" method="post" enctype="multipart/form-data" class="blog-form">
         <div class="form-group">
             <label for="markdown_file">Blog Content (Markdown File):</label>
-            <input type="file" id="markdown_file" name="markdown_file" accept=".md" required>
+            <input type="file" 
+                   id="markdown_file" 
+                   name="markdown_file" 
+                   accept=".md" 
+                   required 
+                   onchange="validateMarkdownFile(this)">
             <small class="form-text">Upload your markdown file with YAML front matter</small>
+            <div id="markdown-error" class="error-message"></div>
         </div>
         
         <div class="form-group">
             <label for="cover_image">Cover Image:</label>
-            <input type="file" id="cover_image" name="cover_image" accept="image/*" required>
-            <small class="form-text">Upload an image for your blog post cover</small>
+            <input type="file" 
+                   id="cover_image" 
+                   name="cover_image" 
+                   accept="image/*" 
+                   required 
+                   onchange="previewImage(this)">
+            <small class="form-text">Upload an image for your blog post cover (max 2MB)</small>
+            <div id="image-preview-container" style="margin-top: 10px;">
+                <img id="image-preview" src="" style="max-width: 300px; display: none;">
+            </div>
         </div>
         
         <button type="submit" class="submit-btn">Create Post</button>
     </form>
 </div>
+
+<script>
+function validateMarkdownFile(input) {
+    const file = input.files[0];
+    const errorDiv = document.getElementById('markdown-error');
+    
+    // Validate file extension
+    if (!file.name.toLowerCase().endsWith('.md')) {
+        errorDiv.textContent = 'Please upload a markdown (.md) file';
+        input.value = ''; // Clear the input
+        return false;
+    }
+    
+    // Optional: Validate file size (e.g., max 1MB)
+    if (file.size > 1024 * 1024) {
+        errorDiv.textContent = 'File size should be less than 1MB';
+        input.value = ''; // Clear the input
+        return false;
+    }
+    
+    errorDiv.textContent = ''; // Clear any previous error
+    return true;
+}
+
+function previewImage(input) {
+    const file = input.files[0];
+    const preview = document.getElementById('image-preview');
+    const previewContainer = document.getElementById('image-preview-container');
+    
+    // Validate file type
+    const validTypes = ['image/jpeg', 'image/png', 'image/gif'];
+    if (!validTypes.includes(file.type)) {
+        alert('Please upload a valid image (JPEG, PNG, GIF)');
+        input.value = ''; // Clear the input
+        preview.style.display = 'none';
+        return;
+    }
+    
+    // Validate file size (max 2MB)
+    if (file.size > 2 * 1024 * 1024) {
+        alert('Image size should be less than 2MB');
+        input.value = ''; // Clear the input
+        preview.style.display = 'none';
+        return;
+    }
+    
+    const reader = new FileReader();
+    
+    reader.onload = function(e) {
+        preview.src = e.target.result;
+        preview.style.display = 'block';
+    }
+    
+    reader.readAsDataURL(file);
+}
+</script>
 {% endblock %}

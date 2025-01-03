@@ -1,7 +1,7 @@
 ---
 author: Fadils
 date: 2024-12-16
-image: /static/uploads/img.png
+image: /static/uploads/Photo_on_01-12-24_at_03.00.jpg
 readingtime: 9min
 tags:
 - technology
@@ -9,6 +9,8 @@ tags:
 - future
 title: The Future of Artificial Intelligence
 ---
+
+
 
 
 

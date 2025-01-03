@@ -1,5 +1,0 @@
-
-make a file frist ".env"
-FLASK_SECRET_KEY=your-secret-key-here
-SUPABASE_URL=your-supabase-project-url
-SUPABASE_KEY=your-supabase-anon-key

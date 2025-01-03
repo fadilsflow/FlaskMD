@@ -16,26 +16,11 @@ body {
   font-family: 'Poppins';
   line-height: 1.6;
   transition: background-color 0.3s ease, color 0.3s ease; /* Animasi transisi */
-}
-
-
-/* Tema Gelap */
-body.dark {
   background-color: var(--background-dark);
   color: var(--font-dark);
 }
-body.dark a {
-  color: var(--font-dark);
-}
-/* Tema Terang */
-body.light {
-  background-color: var(--background-light);
-  color: var(--font-light);
-}
-body.light a {
-  color: var(--font-light);
 
-}
+
 /* Kontainer */
 .container {
   width: 90%;

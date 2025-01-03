@@ -1,7 +1,7 @@
 ---
 author: Fadils
 date: 2024-12-19
-image: /static/uploads/img.png
+image: /static/uploads/mewing2.jpg
 readingtime: 5min
 tags:
 - health
@@ -9,8 +9,6 @@ tags:
 - lifestyle
 title: 5 Healthy Habits for a Better Life
 ---
-
-
 
 
 Living a healthy life is about more than just eating right or exercising—it’s about adopting habits that promote well-being in all areas of life. Here are five simple habits that can help you feel better physically and mentally.
