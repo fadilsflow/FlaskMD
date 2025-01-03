@@ -1,3 +1,2 @@
-Flask
-Markdown
-PyYAML
+flask
+supabase
