@@ -1,0 +1,127 @@
+{% extends "base.html" %}
+
+{% block title %}Edit Blog{% endblock %}
+
+{% block content %}
+<div class="add-blog-container">
+    <h1>Edit Blog Post</h1>
+    
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    
+    <form action="{{ url_for('edit_blog', post_id=post.id) }}" method="post" enctype="multipart/form-data" class="blog-form">
+        <div class="form-group">
+            <label>Current Image</label>
+            {% if post.image %}
+                <div id="image-preview-container">
+                    <img 
+                        id="current-image" 
+                        src="{{ post.image }}" 
+                        alt="Current Cover" 
+                        style="max-width: 300px; border-radius: 8px;"
+                    >
+                </div>
+            {% else %}
+                <p>No image uploaded</p>
+            {% endif %}
+        </div>
+        
+        <div class="form-group">
+            <label for="markdown_file">Replace Markdown File (Optional)</label>
+            <input 
+                type="file" 
+                id="markdown_file" 
+                name="markdown_file" 
+                accept=".md"
+                onchange="validateMarkdownFile(this)"
+            >
+            <small class="form-text">Upload a new markdown file to replace the existing content</small>
+            <div id="markdown-error" class="error-message"></div>
+        </div>
+        
+        <div class="form-group">
+            <label for="cover_image">Replace Cover Image (Optional)</label>
+            <input 
+                type="file" 
+                id="cover_image" 
+                name="cover_image" 
+                accept="image/*"
+                onchange="previewImage(this)"
+            >
+            <small class="form-text">Upload a new cover image</small>
+            <div id="image-preview-container" style="margin-top: 10px;">
+                <img id="image-preview" src="" style="max-width: 300px; display: none;">
+            </div>
+        </div>
+        
+        <div class="form-actions">
+            <button type="submit" class="submit-btn">Update Blog</button>
+            <button class="cancel-btn">Cancel</button><a href="{{ url_for('manage_blogs') }}" ></a></button>
+        </div>
+    </form>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+function validateMarkdownFile(input) {
+    const file = input.files[0];
+    const errorDiv = document.getElementById('markdown-error');
+    
+    // Validate file extension
+    if (file && !file.name.toLowerCase().endsWith('.md')) {
+        errorDiv.textContent = 'Please upload a markdown (.md) file';
+        input.value = ''; // Clear the input
+        return false;
+    }
+    
+    // Optional: Validate file size (e.g., max 1MB)
+    if (file && file.size > 1024 * 1024) {
+        errorDiv.textContent = 'File size should be less than 1MB';
+        input.value = ''; // Clear the input
+        return false;
+    }
+    
+    errorDiv.textContent = ''; // Clear any previous error
+    return true;
+}
+
+function previewImage(input) {
+    const file = input.files[0];
+    const preview = document.getElementById('image-preview');
+    
+    // Validate file type
+    const validTypes = ['image/jpeg', 'image/png', 'image/gif'];
+    if (file && !validTypes.includes(file.type)) {
+        alert('Please upload a valid image (JPEG, PNG, GIF)');
+        input.value = ''; // Clear the input
+        preview.style.display = 'none';
+        return;
+    }
+    
+    // Validate file size (max 2MB)
+    if (file && file.size > 2 * 1024 * 1024) {
+        alert('Image size should be less than 2MB');
+        input.value = ''; // Clear the input
+        preview.style.display = 'none';
+        return;
+    }
+    
+    if (file) {
+        const reader = new FileReader();
+        
+        reader.onload = function(e) {
+            preview.src = e.target.result;
+            preview.style.display = 'block';
+        }
+        
+        reader.readAsDataURL(file);
+    }
+}
+</script>
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="home-container">
+    <div class="profile-section">
+        <div class="profile-image">
+            <img src="{{ url_for('static', filename='image/profile.png') }}" alt="Profile Picture">
+        </div>
+        <h1 class="profile-name">Wahyu Akhmad Fadillah</h1>
+        <p class="profile-profession">Fullstack Developer & Content Creator</p>
+        
+        <div class="social-icons">
+            <a href="https://github.com/yourusername" target="_blank" class="social-icon">
+                <ion-icon name="logo-github"></ion-icon>
+            </a>
+            <a href="https://linkedin.com/in/yourusername" target="_blank" class="social-icon">
+                <ion-icon name="logo-linkedin"></ion-icon>
+            </a>
+            <a href="https://instagram.com/yourusername" target="_blank" class="social-icon">
+                <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+            <a href="https://twitter.com/yourusername" target="_blank" class="social-icon">
+                <ion-icon name="logo-twitter"></ion-icon>
+            </a>
+            <a href="mailto:your.email@example.com" target="_blank" class="social-icon">
+                <ion-icon name="mail"></ion-icon>
+            </a>
+        </div>
+        
+        <a href="{{ url_for('blog') }}" class="blog-button">
+            View My Blog
+            <ion-icon name="arrow-forward"></ion-icon>
+        </a>
+    </div>
+</div>
+{% endblock %}
