@@ -1,5 +1,0 @@
-flask
-pymysql
-markdown
-pyyaml
-werkzeug

@@ -82,5 +82,13 @@ def init_routes(app):
         # Ambil semua post dengan tag tertentu
         posts = Post.get_posts_by_tag(tag)
         return render_template("index.html", posts=posts, tag=tag)
-    
-    return app  
+
+    @app.route("/about")
+    def about():
+        return render_template("about.html")
+
+    @app.route("/contact")
+    def contact():
+        return render_template("contact.html")
+
+    return app

@@ -7,10 +7,6 @@
     <div class="manage-blog-container">
         <div class="manage-blog-header">
             <h1>Manage Blogs</h1>
-            <a href="{{ url_for('add_blog') }}" class="btn btn-add-blog">
-                <ion-icon name="add-circle"></ion-icon>
-                Add New Blog
-            </a>
         </div>
         <table class="manage-blog-table">
             <thead>
@@ -30,6 +26,8 @@
                     <td>{{ post.date }}</td>
                     <td>{{ post.author }}</td>
                     <td class="action-buttons">
+                      <button class="btn btn-add">
+                            <a href="{{ url_for('add_blog') }}">Add</a>
                         <button class="btn btn-edit">
                             <a href="{{ url_for('edit_blog', post_id=post.id) }}">Edit</a>
                         </button>

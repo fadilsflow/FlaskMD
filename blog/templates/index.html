@@ -6,25 +6,12 @@ Home - My Blog
 
 {% block content %}
 <div class="blog-container">
-  <div class="user-bio">
-    <div class="user-info">
-      <div class="user-image">
-        <img src="../static/image/profile.png" alt="User Image">
-      </div>
-      <div class="user-details">
-        <h2 class="user-name">Wahyu Akhmad Fadillah</h2>
-        <p class="user-role">Fullstack Developer & Content Creator.</p>
-        <p class="user-blog-count">Blogs Created: {{ posts|length }}</p>
-      </div>
-      <div class="blog-actions">
-        <a href="{{ url_for('manage_blogs') }}" class="manage-blog-button">
-            <ion-icon name="settings"></ion-icon>
-            <span>Manage Blogs</span>
-        </a>
-      </div>
-    </div>
+  <div class="blog-header">
+    <h1>BLOG</h1>
+    <a href="{{ url_for('manage_blogs') }}" class="manage-blog-button">
+      <ion-icon name="settings"></ion-icon>
+    </a>
   </div>
-  <h1>Posts</h1>
   <div class="post-list">
     {% for post in posts %}
     <div class="post-card">

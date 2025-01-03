@@ -9,11 +9,14 @@
 
 body {
   margin: 0;
-  font-family: 'Inter', 'Poppins', sans-serif;
+  font-family: 'Poppins', sans-serif;
   line-height: 1.6;
   transition: background-color 0.3s ease, color 0.3s ease;
   background-color: var(--background-dark);
   color: var(--font-dark);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 /* Kontainer */
@@ -37,80 +40,50 @@ a:hover {
 
 /* Navbar Styles */
 .navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
   background-color: var(--background-light);
-  padding: 5px 0;
-  height: 50px; /* Tetapkan tinggi navbar */
-  display: flex;
-  align-items: center;
-}
-
-.navbar .container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0 20px;
 }
 
 .navbar .logo a {
   font-size: 1.5rem;
   font-weight: bold;
   color: var(--font-dark);
+  text-transform: uppercase;
 }
 
 .nav-menu {
   display: flex;
   gap: 20px;
   list-style: none;
-  margin: 0;
-  padding: 0;
 }
 
 .nav-menu li a {
   color: var(--font-dark);
   font-weight: bold;
+  padding: 5px 10px;
+  transition: color 0.3s ease, border-bottom 0.3s ease;
 }
 
-/* User Bio Styles */
-.user-bio {
-  margin-bottom: 30px;
-  background-color: var(--background-light);
-  padding: 30px;
-  border-radius: 10px;
+.nav-menu li a:hover {
+  color: var(--hover-color);
+  border-bottom: 2px solid var(--hover-color);
 }
 
-.user-info {
+.language-switcher {
   display: flex;
   align-items: center;
-  position: relative;
+  cursor: pointer;
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-.user-image {
-  width: 130px;
-  height: 130px;
-  margin-right: 25px;
-  overflow: hidden;
-  border-radius: 50%;
+.language-switcher:hover {
+  transform: scale(1.1);
+  opacity: 0.8;
 }
 
-.user-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.user-details {
-  flex-grow: 1;
-}
-
-.user-name {
-  font-size: 2rem;
-  margin: 0 0 10px 0;
-}
-
-.user-role, .user-blog-count {
-  margin: 5px 0;
-  color: #999;
-}
 /* Manage Blog Table Styles */
 .manage-blog-container {
   background-color: var(--background-light);
@@ -129,7 +102,17 @@ a:hover {
 .manage-blog-table thead {
   background-color: rgba(255,255,255,0.05);
 }
-
+.manage-blog-header h1{
+  text-align: center;
+  margin-bottom: 20px;
+  color: var(--font-dark);
+}
+manage-blog-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
 .manage-blog-table th, 
 .manage-blog-table td {
   padding: 12px 15px;
@@ -190,6 +173,7 @@ a:hover {
   gap: 10px;
 }
 
+.btn-add, 
 .btn-edit, 
 .btn-delete {
   display: inline-block;
@@ -205,25 +189,32 @@ a:hover {
   cursor: pointer;
 }
 
+.btn-add {
+  background-color: #28a745; /* Green for Add */
+}
+
 .btn-edit {
-  background-color: var(--link-color);
+  background-color: var(--link-color); /* Blue for Edit */
 }
 
 .btn-delete {
-  background-color: #dc3545;
+  background-color: #dc3545; /* Red for Delete */
 }
 
-.btn-edit a {
+.btn-add:hover,
+.btn-edit:hover,
+.btn-delete:hover {
+  opacity: 0.9;
+}
+
+.btn-add a, 
+.btn-edit a, 
+.btn-delete a {
   color: white;
   text-decoration: none;
   display: block;
   width: 100%;
   height: 100%;
-}
-
-.btn-edit:hover,
-.btn-delete:hover {
-  opacity: 0.9;
 }
 
 /* Responsive Table */
@@ -242,6 +233,11 @@ a:hover {
   .manage-blog-table th:last-child,
   .manage-blog-table td:last-child {
       display: none;
+  }
+
+  .action-buttons {
+    flex-direction: column;
+    gap: 5px;
   }
 }
 /* Post List Styles */
@@ -330,7 +326,9 @@ footer {
   background-color: var(--background-light);
   text-align: center;
   padding: 20px 0;
-  margin-top: 30px;
+  font-size: 0.8rem;
+  color: #888;
+  margin-top: auto;
 }
 
 /* Responsive Adjustments */
@@ -369,7 +367,6 @@ footer {
     margin-top: 15px;
   }
 }
-
 
 /* post image */
 .post-image {
@@ -417,12 +414,6 @@ footer {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.add-blog-container h1 {
-  text-align: center;
-  margin-bottom: 25px;
-  color: var(--font-dark);
-  font-size: 1.8rem;
-}
 .add-blog-container h1 {
   text-align: center;
   margin-bottom: 25px;
@@ -554,23 +545,24 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: calc(100vh - 100px); /* Kurangi tinggi navbar dan footer */
+  min-height: 100vh; /* Full height of the viewport */
   padding: 20px;
 }
 
+/* Profile Section */
 .profile-section {
   text-align: center;
   background-color: var(--background-light);
   padding: 40px;
   border-radius: 15px;
-  max-width: 500px;
+  max-width: 400px; /* Adjusted for a more compact look */
   width: 100%;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
 }
 
 .profile-image {
-  width: 200px;
-  height: 200px;
+  width: 150px; /* Adjusted size */
+  height: 150px; /* Adjusted size */
   border-radius: 50%;
   overflow: hidden;
   margin: 0 auto 20px;
@@ -584,7 +576,7 @@ footer {
 }
 
 .profile-name {
-  font-size: 2rem;
+  font-size: 2rem; /* Larger font size */
   margin-bottom: 10px;
   color: var(--font-dark);
 }
@@ -595,67 +587,141 @@ footer {
   margin-bottom: 30px;
 }
 
-.social-icons {
+.icon-row {
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 15px;
   margin-bottom: 30px;
 }
 
-.social-icon {
+.icon-row ion-icon {
   color: var(--font-dark);
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   transition: color 0.3s ease;
 }
 
-.social-icon:hover {
+.icon-row ion-icon:hover {
   color: var(--link-color);
 }
 
-.blog-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  background-color: var(--link-color);
-  color: white;
-  padding: 12px 20px;
-  border-radius: 8px;
-  text-decoration: none;
-  transition: background-color 0.3s ease;
+/* Contact Page */
+.contact-container {
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: var(--background-light);
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.blog-button:hover {
+.contact-container h1 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: var(--font-dark);
+  font-size: 1.8rem;
+}
+
+.contact-container p {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #888;
+}
+
+.contact-container .form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+.contact-container .form-group label {
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: #aaa;
+}
+
+.contact-container .form-group input,
+.contact-container .form-group textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: rgba(255,255,255,0.05);
+  color: var(--font-dark);
+}
+
+.contact-container .form-group input:focus,
+.contact-container .form-group textarea:focus {
+  border-color: var(--link-color);
+}
+
+.contact-container .submit-btn {
+  background-color: var(--link-color);
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  align-self: center;
+  width: 100%;
+}
+
+.contact-container .submit-btn:hover {
   background-color: var(--hover-color);
 }
 
-.blog-button ion-icon {
-  font-size: 1.2rem;
+/* About Page */
+.about-container {
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: var(--background-light);
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Responsive */
-@media (max-width: 600px) {
-  .profile-section {
-      padding: 20px;
-  }
-
-  .profile-image {
-      width: 150px;
-      height: 150px;
-  }
-
-  .profile-name {
-      font-size: 1.5rem;
-  }
-
-  .social-icons {
-      gap: 15px;
-  }
-
-  .social-icon {
-      font-size: 1.5rem;
-  }
+.about-container h1 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: var(--font-dark);
+  font-size: 1.8rem;
 }
 
+.about-container p {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #888;
+}
+
+.blog-header {
+  display: flex;
+  align-items: center; /* Vertically center the items */
+  justify-content: space-between; /* Space between the items */
+  margin-bottom: 30px; /* Optional: Add some space below the header */
+}
+
+.blog-header h1 {
+  flex-grow: 1; /* Allow the h1 to take up available space */
+  text-align: center; /* Center the text */
+  margin: 0; /* Remove default margin */
+  font-size: 2.5rem; /* Set a larger font size for the title */
+  color: var(--font-dark); /* Optional: Set color for the title */
+}
+
+.manage-blog-button {
+  display: flex;
+  align-items: center; /* Center icon vertically */
+  justify-content: center; /* Center icon horizontally */
+  background-color: transparent; /* Make background transparent */
+  color: var(--link-color); /* Set icon color */
+  padding: 8px; /* Padding for the button */
+  border: none; /* Remove border */
+  border-radius: 5px; /* Rounded corners */
+  transition: background-color 0.3s ease; /* Transition for hover effect */
+}
+
+.manage-blog-button:hover {
+  background-color: rgba(0, 0, 0, 0.1); /* Change background on hover */
+}
 /* Tambahan Font Import */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@400;500;600&display=swap');
