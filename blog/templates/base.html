@@ -22,15 +22,14 @@
             <h1 class="logo"><a href="{{ url_for('index') }}">Fadils</a></h1>
             <nav>
                 <ul class="nav-menu">
-                    <li><a href="{{ url_for('index') }}">Home</a></li>
-                    <li><a href="{{ url_for('blog') }}">Blog</a></li>
-                    <li><a href="{{ url_for('about') }}">About</a></li>
-                </ul>
+                    <li><a href="{{ url_for('index') }}" class="{{ 'active' if current_page == 'home' else '' }}">Home</a></li>
+                    <li><a href="{{ url_for('blog') }}" class="{{ 'active' if current_page == 'index' else '' }}">Blog</a></li>
+                    <li><a href="{{ url_for('about') }}" class="{{ 'active' if current_page == 'about' else '' }}">About</a></li>
+                    <li><a href="{{ url_for('contact') }}" class="{{ 'active' if current_page == 'contact' else '' }}">Contact</a></li>
                 </ul>
             </nav>
-
         </div>
-    </header>
+    </header>   
     <main class="container">
         {% block content %}{% endblock %}
     </main>

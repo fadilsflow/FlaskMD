@@ -7,7 +7,7 @@ def init_routes(app):
     @app.route("/")
     def index():
         posts = Post.get_posts()
-        return render_template("home.html", posts=posts)
+        return render_template("home.html", posts=posts, current_page="home")
 
     @app.route("/add_blog", methods=["GET", "POST"])
     def add_blog():
@@ -75,7 +75,7 @@ def init_routes(app):
     @app.route("/blog")
     def blog():
         posts = Post.get_all_posts()
-        return render_template("index.html", posts=posts)
+        return render_template("index.html", posts=posts, current_page="index")
 
     @app.route("/blog/tag/<tag>")
     def blog_by_tag(tag):
@@ -85,10 +85,10 @@ def init_routes(app):
 
     @app.route("/about")
     def about():
-        return render_template("about.html")
+        return render_template("about.html", current_page="about")
 
     @app.route("/contact")
     def contact():
-        return render_template("contact.html")
+        return render_template("contact.html", current_page="contact")
 
     return app
