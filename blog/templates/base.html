@@ -19,7 +19,12 @@
 <body>
     <header class="navbar">
         <div class="container">
-            <h1 class="logo"><a href="{{ url_for('index') }}">Fadils</a></h1>
+            <div class="logo">
+                <a href="{{ url_for('index') }}">FlaskMD</a>
+            </div>
+            <div class="menu-toggle" id="mobile-menu">
+                <ion-icon name="menu-outline"></ion-icon>
+            </div>
             <nav>
                 <ul class="nav-menu">
                     <li><a href="{{ url_for('index') }}" class="{{ 'active' if current_page == 'home' else '' }}">Home</a></li>
@@ -29,17 +34,33 @@
                 </ul>
             </nav>
         </div>
-    </header>   
+    </header>
     <main class="container">
         {% block content %}{% endblock %}
     </main>
     <footer>
         <div class="container">
-            <p>&copy; {{ current_year }} FlaskMD | Designed with 🤍 by Fadils using Flask</p>
+            <p>&copy; {{ current_year }} FlaskMD | Designed with 🤍 by FADILSFLOW using Flask</p>
         </div>
     </footer>
 
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</script>
+<script>
+    const mobileMenu = document.getElementById('mobile-menu');
+    const navMenu = document.querySelector('.nav-menu');
+
+    mobileMenu.addEventListener('click', () => {
+        navMenu.classList.toggle('active'); // Toggle class active
+    });
+
+    // Menutup navbar saat mengklik di luar
+    window.addEventListener('click', (event) => {
+        if (!navMenu.contains(event.target) && !mobileMenu.contains(event.target)) {
+            navMenu.classList.remove('active'); // Hapus class active
+        }
+    });
+</script>
 </body>
 </html>

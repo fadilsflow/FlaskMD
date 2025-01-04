@@ -1,5 +1,5 @@
 class Config:
-    SECRET_KEY = 'your_secret_key'
+    SECRET_KEY = 'fadils'
     UPLOAD_FOLDER = 'blog/static/uploads'
     POSTS_FOLDER = 'posts'
     

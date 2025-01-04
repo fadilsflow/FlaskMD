@@ -1,5 +1,6 @@
-from flask import render_template, request, redirect, url_for, flash
+from flask import render_template, request, redirect, url_for, flash, session
 from .models import Post, Database
+from config import Config  # Pastikan untuk mengimpor Config
 import pymysql
 
 
@@ -34,10 +35,19 @@ def init_routes(app):
             "post.html", post=post_data, content=post_data["markdown_content"]
         )
 
-    @app.route("/manage_blogs")
+    @app.route("/manage_blogs", methods=["GET", "POST"])
     def manage_blogs():
-        posts = Post.get_all_posts()
-        return render_template("manage_blogs.html", posts=posts)
+        if request.method == "POST":
+            secret_key = request.form.get("secret_key")
+            if secret_key == Config.SECRET_KEY:
+                # If the secret key is correct, show the manage blogs page
+                posts = Post.get_all_posts()
+                return render_template("manage_blogs.html", posts=posts)
+            else:
+                flash("Wrong secret key🤭!")
+
+        # If the request method is GET or the secret key was incorrect, show the input form
+        return render_template("enter_secret_key.html")
 
     @app.route("/edit_blog/<int:post_id>", methods=["GET", "POST"])
     def edit_blog(post_id):
@@ -51,7 +61,6 @@ def init_routes(app):
             md_file = request.files.get("markdown_file")
             image_file = request.files.get("cover_image")
 
-            # Jika tidak ada file baru, gunakan None
             md_file = md_file if md_file.filename else None
             image_file = image_file if image_file.filename else None
 
@@ -79,7 +88,6 @@ def init_routes(app):
 
     @app.route("/blog/tag/<tag>")
     def blog_by_tag(tag):
-        # Ambil semua post dengan tag tertentu
         posts = Post.get_posts_by_tag(tag)
         return render_template("index.html", posts=posts, tag=tag)
 
