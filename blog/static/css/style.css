@@ -218,7 +218,8 @@ a:hover {
 }
 
 .btn-edit {
-  background-color: var(--link-color); /* Blue for Edit */
+  background-color: #0A84FF; /* Blue for Edit */
+  color: white;
 }
 
 .btn-delete {
@@ -754,5 +755,14 @@ name-profession{
   background-color: rgba(0, 0, 0, 0.1); /* Change background on hover */
 }
 
+.secret-key{
+  text-align: center;
+  font-size: larger
+}
+.secret-key button, input{
+  padding: 10px 20px ;
+  font-size: 1rem;
+  border-radius: 50px;
+}
 /* Font Import */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@400;500;600&display=swap');
