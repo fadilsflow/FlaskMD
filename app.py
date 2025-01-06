@@ -10,7 +10,7 @@ from config import Config
 # Create app
 app = create_app()
 
-# Inisialisasi route
+# Initialize routes
 app = init_routes(app)
 
 # Run the app

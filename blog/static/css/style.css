@@ -2,10 +2,11 @@
 :root {
   --background-dark: #1E1E1E;
   --font-dark: #D4D4D4;
-  --link-color: #a12828;
-  --hover-color: #0A84FF;
+  --link-color: #D4D4D4;
+  --hover-color: #404040; /* blue:0A84FF */
   --background-light: #1E1E1E; /* Changed to #1E1E1E */
 }
+
 .menu-toggle{
   display: none;
 }
@@ -92,7 +93,7 @@ a:hover {
   bottom: -5px; /* Jarak dari teks */
   width: 0;
   height: 2px;
-  background-color: var(--hover-color);
+  background-color: var(--font-dark);
   transition: width 0.3s ease, left 0.3s ease; /* Transisi untuk efek */
 }
 
@@ -193,6 +194,7 @@ a:hover {
   display: flex;
   justify-content: center;
   gap: 10px;
+  align-items: center;
 }
 
 .btn-add, 
@@ -221,6 +223,7 @@ a:hover {
 
 .btn-delete {
   background-color: #dc3545; /* Red for Delete */
+  color: white;
 }
 
 .btn-add:hover,
@@ -646,7 +649,7 @@ name-profession{
   margin-top: 10px; /* Tambahkan sedikit jarak di atas tombol blog */
   padding: 10px 15px; /* Tambahkan padding untuk tombol */
   background-color: var(--link-color);
-  color: white;
+  color: #1E1E1E;
   border-radius: 5px;
   text-decoration: none;
   transition: background-color 0.3s ease;
