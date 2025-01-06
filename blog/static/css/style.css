@@ -2,11 +2,13 @@
 :root {
   --background-dark: #1E1E1E;
   --font-dark: #D4D4D4;
-  --link-color: #007BFF;
+  --link-color: #a12828;
   --hover-color: #0A84FF;
   --background-light: #1E1E1E; /* Changed to #1E1E1E */
 }
-
+.menu-toggle{
+  display: none;
+}
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
@@ -25,15 +27,6 @@ body {
   max-width: 1100px;
   margin: 0 auto;
   padding: 15px;
-  align-items: center;
-}
-main{
-  margin: 0 auto; 
-  align-items: center;
-}
-main .container{
-  align-items: center;
-  margin: 0 auto; 
 }
 
 /* Link Styles */
@@ -50,13 +43,12 @@ a:hover {
 /* Navbar Styles */
 .navbar {
   background-color: var(--background-light);
-  padding: 0 10px 0 20px;
-  height: 50px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 0;
   position: sticky;
   top: 0;
   z-index: 1000;
 }
-
 
 .navbar .container {
   display: flex;
@@ -66,24 +58,18 @@ a:hover {
 
 .navbar .logo a {
   font-size: 1.5rem;
-  font-weight: 700;
+  font-weight: 600;
   color: var(--link-color);
   text-decoration: none;
-  padding: none;
 }
 
 .nav-menu {
+  list-style: none;
   display: flex;
   gap: 15px;
+  position: relative;
 }
-.menu-toggle {
-  display: none; /* Sembunyikan tombol menu di desktop */
-  cursor: pointer;
-  font-size: 1.5rem;  
-  position: absolute;
-  top: 10px;
-  right: 20px;
-}
+
 .nav-menu li {
   display: inline;
   position: relative;
@@ -115,39 +101,6 @@ a:hover {
   width: 100%; /* Lebar penuh saat hover */
   left: 0; /* Posisi ke kiri */
   color: white; /* Ubah warna teks saat hover */
-}
-
-
-
-/* Responsive Styles */
-@media (max-width: 768px) {
-  .nav-menu {
-      display: none; /* Sembunyikan menu di mobile */
-      flex-direction: column; /* Ubah menjadi kolom */
-      width: fit-content; /* Lebar penuh */
-      background-color: var(--background-light);
-      position: absolute; /* Posisi absolut */
-      top: 30px;
-      right: 30px;
-      z-index: 1000;
-      /* gap: 20px; Add space between nav-menu items */
-      border-radius: 5px;
-      text-align: left;      
-  }
-
-  .nav-menu.active {
-      display: flex; 
-      height: fit-content;
-      padding-bottom: 10px;
-  }
-
-  .menu-toggle {
-      display: block; /* Tampilkan tombol menu di mobile */
-  }
-
-  .icon-row {
-    gap: 40px; /* Add more space between icons */
-  }
 }
 
 /* Manage Blog Table Styles */
@@ -268,7 +221,6 @@ a:hover {
 
 .btn-delete {
   background-color: #dc3545; /* Red for Delete */
-  color: white;
 }
 
 .btn-add:hover,
@@ -318,7 +270,6 @@ a:hover {
   .action-buttons {
     flex-direction: column;
     gap: 5px;
-    align-items: center;
   }
 }
 
@@ -409,9 +360,8 @@ footer {
   text-align: center;
   padding: 15px 0;
   font-size: 0.8rem;
-  vertical-align: middle;
   color: #888;
-  margin-top: 0;
+  margin-top: auto;
 }
 
 /* Responsive Adjustments */
@@ -519,7 +469,6 @@ footer {
   margin-bottom: 8px;
   font-weight: 500;
   color: #aaa;
-  text-align: center;
 }
 
 .form-group input[type="file"] {
@@ -633,19 +582,16 @@ footer {
   justify-content: center;
   align-items: center;
   max-height: fit-content;
-  margin: 0 auto; 
   padding: 10px;
 }
 
 /* Profile Section */
 .profile-section {
   text-align: center;
-  padding: 10px;
-  margin: 0 auto; 
+  padding: 20px;
   margin: 0 auto;
   max-width: 350px;
   width: 100%;
-  align-items: center;
 
 }
 
@@ -688,7 +634,7 @@ name-profession{
   padding: 10px;
 }
 .social-icons a{
-  font-size: 30px;
+  font-size: larger;
   gap: 30px;
   color: var(--font-dark);
 }
@@ -803,15 +749,6 @@ name-profession{
 
 .manage-blog-button:hover {
   background-color: rgba(0, 0, 0, 0.1); /* Change background on hover */
-}
-
-.secret-key{
-  text-align: center;
-  align-items: center;
-  justify-content: center;
-  margin-top: 20px;
-  padding: 10px;
-  
 }
 
 /* Font Import */
