@@ -1,0 +1,39 @@
+.
+├── __pycache__
+│   ├── app.cpython-312.pyc
+│   └── config.cpython-312.pyc
+├── app.py
+├── blog
+│   ├── __init__.py
+│   ├── __pycache__
+│   ├── models.py
+│   ├── routes.py
+│   ├── static
+│   └── templates
+├── config.py
+├── db
+│   └── db.sql
+├── files.tree
+├── posts
+│   ├── 5 Healthy Habits for a Better Life.md
+│   ├── 5-healthy-habits-for-a-better-life-20250103.md
+│   ├── 5_Healthy_Habits_for_a_Better_Life.md
+│   ├── Exploring the Best Travel Destinations for 2025.md
+│   ├── Exploring the Wonders of Nature.md
+│   ├── How to Build a Successful Morning Routine.md
+│   ├── How_to_Build_a_Successful_Morning_Routine.md
+│   ├── The Future of Artificial Intelligence.md
+│   ├── The Rise of Eco-Friendly Technology.md
+│   ├── example-post2.md
+│   ├── exploring-the-best-travel-destinations-for-2025-20250103.md
+│   ├── exploring-the-wonders-of-nature-20250103.md
+│   └── the-future-of-artificial-intelligence-20250103.md
+├── requirement.txt
+├── tree.txt
+└── venv
+    ├── bin
+    ├── include
+    ├── lib
+    └── pyvenv.cfg
+
+12 directories, 25 files
