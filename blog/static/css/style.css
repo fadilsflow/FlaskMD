@@ -1,18 +1,18 @@
 /* Global Styles */
 :root {
-  --background-dark: #1E1E1E;
-  --font-dark: #D4D4D4;
-  --link-color: #D4D4D4;
+  --background-dark: #1e1e1e;
+  --font-dark: #d4d4d4;
+  --link-color: #d4d4d4;
   --hover-color: #404040; /* blue:0A84FF */
-  --background-light: #1E1E1E; /* Changed to #1E1E1E */
+  --background-light: #1e1e1e; /* Changed to #1E1E1E */
 }
 
-.menu-toggle{
+.menu-toggle {
   display: none;
 }
 body {
   margin: 0;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   line-height: 1.6;
   transition: background-color 0.3s ease, color 0.3s ease;
   background-color: var(--background-dark);
@@ -74,7 +74,6 @@ a:hover {
 .nav-menu li {
   display: inline;
   position: relative;
-
 }
 
 .nav-menu li a {
@@ -83,11 +82,11 @@ a:hover {
   font-weight: 500;
   padding: 5px 10px;
   border-radius: 5px;
-  transition:color 0.3s ease;
+  transition: color 0.3s ease;
 }
 /* Garis bawah saat hover dan aktif */
 .nav-menu li a::after {
-  content: '';
+  content: "";
   position: absolute;
   left: 50%;
   bottom: -5px; /* Jarak dari teks */
@@ -98,7 +97,8 @@ a:hover {
 }
 
 .nav-menu li a:hover::after,
-.nav-menu li a.active::after { /* Tetap terlihat saat aktif */
+.nav-menu li a.active::after {
+  /* Tetap terlihat saat aktif */
   width: 100%; /* Lebar penuh saat hover */
   left: 0; /* Posisi ke kiri */
   color: white; /* Ubah warna teks saat hover */
@@ -120,7 +120,7 @@ a:hover {
 }
 
 .manage-blog-table thead {
-  background-color: rgba(255,255,255,0.05);
+  background-color: rgba(255, 255, 255, 0.05);
 }
 
 .manage-blog-header h1 {
@@ -136,11 +136,11 @@ a:hover {
   margin-bottom: 15px;
 }
 
-.manage-blog-table th, 
+.manage-blog-table th,
 .manage-blog-table td {
   padding: 10px 12px;
   text-align: left;
-  border-bottom: 1px solid rgba(255,255,255,0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .manage-blog-table th {
@@ -197,8 +197,8 @@ a:hover {
   align-items: center;
 }
 
-.btn-add, 
-.btn-edit, 
+.btn-add,
+.btn-edit,
 .btn-delete {
   display: inline-block;
   width: 70px;
@@ -218,7 +218,7 @@ a:hover {
 }
 
 .btn-edit {
-  background-color: #0A84FF; /* Blue for Edit */
+  background-color: #0a84ff; /* Blue for Edit */
   color: white;
 }
 
@@ -233,8 +233,8 @@ a:hover {
   opacity: 0.9;
 }
 
-.btn-add a, 
-.btn-edit a, 
+.btn-add a,
+.btn-edit a,
 .btn-delete a {
   color: white;
   text-decoration: none;
@@ -246,29 +246,29 @@ a:hover {
 /* Responsive Table */
 @media (max-width: 768px) {
   .manage-blog-table {
-      font-size: 0.9rem;
+    font-size: 0.9rem;
   }
 
-  .manage-blog-table th, 
+  .manage-blog-table th,
   .manage-blog-table td {
-      padding: 8px 10px;
+    padding: 8px 10px;
   }
 
   .manage-blog-table th:first-child,
   .manage-blog-table td:first-child {
-      display: none;
+    display: none;
   }
 
   .manage-blog-table th:nth-child(3),
   .manage-blog-table td:nth-child(3),
   .manage-blog-table th:nth-child(4),
   .manage-blog-table td:nth-child(4) {
-      display: none;
+    display: none;
   }
 
   .manage-blog-table th:nth-child(2),
   .manage-blog-table td:nth-child(2) {
-      width: 100%;
+    width: 100%;
   }
 
   .action-buttons {
@@ -351,7 +351,7 @@ a:hover {
 }
 
 .tag {
-  background-color: rgba(255,255,255,0.1);
+  background-color: rgba(255, 255, 255, 0.1);
   color: #aaa;
   padding: 3px 8px;
   border-radius: 4px;
@@ -379,17 +379,17 @@ footer {
   .post-card {
     width: 100%;
   }
-  
+
   .user-info {
     flex-direction: column;
     text-align: center;
   }
-  
+
   .user-image {
     margin-right: 0;
     margin-bottom: 20px;
   }
-  
+
   .blog-actions {
     position: static;
     margin-top: 20px;
@@ -473,11 +473,12 @@ footer {
   margin-bottom: 8px;
   font-weight: 500;
   color: #aaa;
+  text-align: center;
 }
 
 .form-group input[type="file"] {
-  background-color: rgba(255,255,255,0.05);
-  border: 2px dashed rgba(255,255,255,0.2);
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 2px dashed rgba(255, 255, 255, 0.2);
   padding: 15px;
   border-radius: 8px;
   color: #666;
@@ -525,7 +526,7 @@ footer {
 }
 
 .submit-btn {
-  background-color: var(--link-color);
+  background-color: #0a84ff;
   color: white;
   border: none;
   padding: 10px 18px;
@@ -539,7 +540,7 @@ footer {
 }
 
 .submit-btn:hover {
-  background-color: var(--hover-color);
+  background-color: rgb(8, 117, 226);
 }
 
 .cancel-btn {
@@ -571,12 +572,12 @@ footer {
 
 @media (max-width: 768px) {
   .add-blog-container {
-      width: 90%;
-      padding: 20px;
+    width: 90%;
+    padding: 20px;
   }
 
   #image-preview {
-      max-width: 100%;
+    max-width: 100%;
   }
 }
 
@@ -596,7 +597,6 @@ footer {
   margin: 0 auto;
   max-width: 350px;
   width: 100%;
-
 }
 
 .profile-image {
@@ -627,17 +627,17 @@ footer {
   color: #888;
   margin-bottom: 10px;
 }
-name-profession{
+name-profession {
   margin: 10px 0;
 }
-.social-icons{
+.social-icons {
   display: flex;
   justify-content: center;
   gap: 30px;
   color: var(--font-dark);
   padding: 10px;
 }
-.social-icons a{
+.social-icons a {
   font-size: larger;
   gap: 30px;
   color: var(--font-dark);
@@ -650,7 +650,7 @@ name-profession{
   margin-top: 10px; /* Tambahkan sedikit jarak di atas tombol blog */
   padding: 10px 15px; /* Tambahkan padding untuk tombol */
   background-color: var(--link-color);
-  color: #1E1E1E;
+  color: #1e1e1e;
   border-radius: 5px;
   text-decoration: none;
   transition: background-color 0.3s ease;
@@ -658,9 +658,9 @@ name-profession{
 
 .blog-button:hover {
   background-color: var(--hover-color); /* Efek hover untuk tombol blog */
-  color: white;}
-.icons{
-
+  color: white;
+}
+.icons {
   vertical-align: middle;
 }
 .icon-row {
@@ -755,14 +755,15 @@ name-profession{
   background-color: rgba(0, 0, 0, 0.1); /* Change background on hover */
 }
 
-.secret-key{
+.secret-key {
   text-align: center;
-  font-size: larger
+  font-size: larger;
 }
-.secret-key button, input{
-  padding: 10px 20px ;
+.secret-key button,
+input {
+  padding: 10px 20px;
   font-size: 1rem;
   border-radius: 50px;
 }
 /* Font Import */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@400;500;600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@400;500;600&display=swap");
