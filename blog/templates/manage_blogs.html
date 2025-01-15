@@ -7,6 +7,9 @@
     <div class="manage-blog-container">
         <div class="manage-blog-header">
             <h1>Manage Blogs</h1>
+            <button class="btn btn-add">
+                <a href="{{ url_for('add_blog') }}">Add</a>
+            </button>
         </div>
         <table class="manage-blog-table">
             <thead>
@@ -26,9 +29,6 @@
                     <td>{{ post.date }}</td>
                     <td>{{ post.author }}</td>
                     <td class="action-buttons">
-                        <button class="btn btn-add">
-                            <a href="{{ url_for('add_blog') }}">Add</a>
-                        </button>
                         <button class="btn btn-edit">
                             <a href="{{ url_for('edit_blog', post_id=post.id) }}">Edit</a>
                         </button>

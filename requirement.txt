@@ -1,5 +1,5 @@
 Flask
-pymysql
+PyMySQL
 PyYAML
 markdown2
 Werkzeug
