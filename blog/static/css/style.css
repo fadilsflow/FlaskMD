@@ -76,7 +76,7 @@ a:hover {
   position: relative;
 }
 
-.nav-menu li a {
+.li a {
   color: var(--font-dark);
   text-decoration: none;
   font-weight: 500;
